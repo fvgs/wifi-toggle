@@ -1,0 +1,13 @@
+#!/bin/bash
+
+while true; do
+  query="`ipconfig getifaddr en0`"
+
+  if [[ $query != 128* ]]; then
+    `networksetup -setairportpower en0 off`
+    `networksetup -setairportpower en0 on`
+    sleep 7
+  else
+    sleep 1
+  fi
+done
