@@ -6,9 +6,10 @@ toggle_wait_time=9
 regular_wait_time=1
 # IP against which the current IP is compared
 ip_compare=""
-ip="`ipconfig getifaddr $interface`"
 
 while true; do
+  ip="`ipconfig getifaddr $interface`"
+
   if [[ $ip == $ip_compare ]]; then
     `networksetup -setairportpower $interface off`
     `networksetup -setairportpower $interface on`
