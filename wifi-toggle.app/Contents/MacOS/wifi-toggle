@@ -1,14 +1,19 @@
 #!/bin/bash
 
-while true; do
-  ip="`ipconfig getifaddr en0`"
-  wait_time=9
+interface="en0"
+# Time in seconds to wait after toggling
+toggle_wait_time=9
+regular_wait_time=1
+# IP against which the current IP is compared
+ip_compare=""
+ip="`ipconfig getifaddr $interface`"
 
-  if [[ $ip != 128* ]]; then
-    `networksetup -setairportpower en0 off`
-    `networksetup -setairportpower en0 on`
-    sleep $wait_time
+while true; do
+  if [[ $ip == $ip_compare ]]; then
+    `networksetup -setairportpower $interface off`
+    `networksetup -setairportpower $interface on`
+    sleep $toggle_wait_time
   else
-    sleep 1
+    sleep $regular_wait_time
   fi
 done
