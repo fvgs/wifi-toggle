@@ -1,10 +1,13 @@
 #!/bin/bash
 
-interface="en0"
+dir=`dirname "$0"`
+# Source the interface file
+. ${dir}"/interface"
+
 # Time in seconds to wait after toggling
 toggle_wait_time=9
 regular_wait_time=1
-# IP against which the current IP is compared
+# IP with which the current IP is compared
 ip_compare=""
 
 while true; do
