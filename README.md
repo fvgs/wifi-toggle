@@ -21,10 +21,10 @@ To setup wifi-toggle to automatically launch when you login:
 5.  Click the '+' icon to add an item to the list, and select 'wifi-toggle.app' from the directory in which you stored it.
 
 
-##NOTE
+##Note
 While recent Macs have the wireless interface set to en0, it is possible yours may be different.
 
-If your wireless interface is set to something other than en0, you may run the following command from the directory in which the app is located.
+If your wireless interface is set to something other than en0, you may run the following command from a terminal while in the same directory as the wifi-toggle app.
 
 `./swapinterface en#`
 
